@@ -115,6 +115,7 @@ textarea{min-height:96px;resize:vertical}
 footer{background:#000;border-top:4px solid var(--red);padding:2rem 0 2.5rem;color:var(--muted);font-size:.92rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.sizeimg{display:block;width:100%;max-width:1000px;height:auto;margin-top:1.8rem;border-radius:14px;border:2px solid var(--red);box-shadow:0 0 40px rgba(229,37,27,.35)}
 </style>
 <link rel="canonical" href="https://mattystyres.ie/">
 <meta name="theme-color" content="#000000">
@@ -247,6 +248,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
  </div>
 </section>
 
+<section id="tyre-size" class="fleet">
+ <div class="wrap">
+  <h2>Not sure of your tyre size?</h2>
+  <p class="lead">It is printed on the sidewall of your tyre. Use this guide to read it, then enter it in the quote form below.</p>
+  <img class="sizeimg" src="mattys-tyre-size-guide.jpg" alt="Guide to reading a tyre size using the example 245/45 R18 100Y. 245 is the tyre width in millimetres. 45 is the aspect ratio, meaning the sidewall height is 45% of the width. R means radial construction. 18 is the rim diameter in inches. 100Y is the load index and speed rating." width="1426" height="630" loading="lazy">
+  <p style="margin-top:1.5rem"><a class="btn" href="#contact">Get a quote</a></p>
+ </div>
+</section>
+
 <section id="contact" class="contact">
  <div class="wrap split">
   <div>
@@ -261,7 +271,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
    <div class="f"><label for="p">Phone</label><input id="p" name="p" type="tel" autocomplete="tel" required></div>
    <div class="f"><label for="t">I am a</label><select id="t"><option>Private motorist</option><option>Fleet / delivery company</option><option>Business / tradesperson</option><option>Taxi / private hire</option><option>Dealer / garage</option><option>Roadside emergency</option></select></div>
    <div class="f"><label for="s">Service needed</label><select id="s"><option>Tyres supply &amp; fit</option><option>Puncture repair</option><option>Wheel balancing</option><option>Battery jump start</option><option>Fleet servicing</option></select></div>
-   <div class="f"><label for="v">Vehicle reg or tyre size</label><input id="v" placeholder="e.g. 201-D-12345 or 205/55 R16"></div>
+   <div class="f"><label for="v">Tyre size</label><input id="v" placeholder="e.g. 225/45 R17"></div>
    <div class="f"><label for="l">Location / area</label><input id="l" placeholder="e.g. Swords, Co. Dublin" required></div>
    <div class="f full"><label for="m">Anything else?</label><textarea id="m"></textarea></div>
    <button class="btn full" type="submit">Send my request</button>
@@ -281,7 +291,7 @@ document.getElementById('y').textContent=new Date().getFullYear();
 document.getElementById('lead').addEventListener('submit',e=>{
  e.preventDefault();const g=i=>document.getElementById(i).value.trim();
  if(!g('n')||!g('p')||!g('l')){alert('Please add your name, phone number and location.');return}
- const t=`Hi Mattys Tyres, I'd like a quote.\nName: ${g('n')}\nPhone: ${g('p')}\nI am a: ${g('t')}\nService: ${g('s')}\nVehicle/tyre size: ${g('v')||'n/a'}\nLocation: ${g('l')}\nNotes: ${g('m')||'n/a'}`;
+ const t=`Hi Mattys Tyres, I'd like a quote.\nName: ${g('n')}\nPhone: ${g('p')}\nI am a: ${g('t')}\nService: ${g('s')}\nTyre size: ${g('v')||'n/a'}\nLocation: ${g('l')}\nNotes: ${g('m')||'n/a'}`;
  document.getElementById('ok').classList.add('show');
  window.open('https://wa.me/353834453800?text='+encodeURIComponent(t),'_blank','noopener');
 });
